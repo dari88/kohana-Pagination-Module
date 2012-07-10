@@ -38,3 +38,10 @@ Install:
 * Download and copy paginator folder under kohana/modules/ folder.
 * Edit your bootstrap.php file and add next line.
 * `'paginator'  => MODPATH.'paginator',`
+
+View file can be modified:
+--------------------------
+1. Copy `modules/paginator/views/paginator/pagination.php` under `application/views/paginator/` folder.
+2. Modify it as you like.
+
+
