@@ -765,7 +765,7 @@ class Paginator implements Countable, IteratorAggregate {
         }
         $pages = $this->getPages($scrollingStyle);
         $url1 = $this->_url . '?' . $this->_pageQueryName . '=';
-        $url2 = '&' . $this->_optionQuery;
+        $url2 = $this->_optionQuery ? '&' . $this->_optionQuery : '';
         $first = ($pages->first == $pages->current) ? '' : $url1 . $pages->first . $url2;
         $previous = ($pages->first == $pages->current) ? '' : $url1 . $pages->previous . $url2;
         $next = ($pages->last == $pages->current) ? '' : $url1 . $pages->next . $url2;
