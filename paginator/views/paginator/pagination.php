@@ -22,7 +22,7 @@ $last_string = '&nbsp;>>';
         echo '<a href="' . $previous . '" rel="previous">' . $previous_string . '</a>';
     }
     foreach ($pagesInRange as $key => $value) {
-        $value ? print('<a href="' . $value . '" rel="previous">' . $key . '</a>')  : print $key;
+        $value ? print('<a href="' . $value . '">' . $key . '</a>')  : print $key;
     }
     if ($next) {
         echo '<a href="' . $next . '" rel="next">' . $next_string . '</a>';
