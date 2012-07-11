@@ -1,7 +1,7 @@
 Very convenient Pagination Module for kohana 3.2
 ================================================
 
-This VPM is codes modification of Zend Paginator. It's input is Database_MySQL_Result, and output is renderd view of pagination. It's very convenient!
+This VPM is codes modification of Zend Paginator. It's input is Database_MySQL_Result, output is paginator and rendered view of pagination. It's very convenient!
 
 Most simple usage:
 ------------------
@@ -35,6 +35,13 @@ Options for example:
 
 Install:
 --------
-* Dounload and set paginator folder under kohana/modules/ folder.
+* Download and copy paginator folder under kohana/modules/ folder.
 * Edit your bootstrap.php file and add next line.
 * `'paginator'  => MODPATH.'paginator',`
+
+View file can be modified:
+--------------------------
+1. Copy `modules/paginator/views/paginator/pagination.php` under `application/views/paginator/` folder.
+2. Modify it as you like.
+
+
