@@ -29,17 +29,17 @@
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Paginator_Scrollingstyle_All implements Paginator_Scrollingstyle_Interface
+class Paginator_ScrollingStyle_All implements Paginator_ScrollingStyle_Interface
 {
     /**
      * Returns an array of all pages given a page number and range.
      *
      * @param  Paginator $paginator
-     * @param  integer $page_Range Unused
+     * @param  integer $pageRange Unused
      * @return array
      */
-    public function get_Pages(Paginator $paginator, $page_Range = null)
+    public function getPages(Paginator $paginator, $pageRange = null)
     {
-        return $paginator->get_Pages_In_Range(1, $paginator->count());
+        return $paginator->getPagesInRange(1, $paginator->count());
     }
 }
