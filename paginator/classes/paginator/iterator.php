@@ -48,8 +48,10 @@ class Paginator_Iterator implements Countable {
      * @param  Iterator $iterator Iterator to paginate
      * @throws Paginator_Exception
      */
-    public function __construct(Iterator $iterator) {
-        if (!$iterator instanceof Countable) {
+    public function __construct(Iterator $iterator)
+    {
+        if (!$iterator instanceof Countable)
+        {
             throw new Exception('Iterator must implement Countable');
         }
 
@@ -64,8 +66,10 @@ class Paginator_Iterator implements Countable {
      * @param  integer $itemCountPerPage Number of items per page
      * @return LimitIterator|array
      */
-    public function getItems($offset, $itemCountPerPage) {
-        if ($this->_count == 0) {
+    public function getItems($offset, $itemCountPerPage)
+    {
+        if ($this->_count == 0)
+        {
             return array();
         }
 
@@ -79,7 +83,8 @@ class Paginator_Iterator implements Countable {
      *
      * @return integer
      */
-    public function count() {
+    public function count()
+    {
         return $this->_count;
     }
 
