@@ -25,7 +25,7 @@
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Paginator_SerializableLimitIterator extends LimitIterator implements Serializable, ArrayAccess
+class Paginator_Serializablelimititerator extends LimitIterator implements Serializable, ArrayAccess
 {
 
     /**
@@ -43,7 +43,7 @@ class Paginator_SerializableLimitIterator extends LimitIterator implements Seria
     private $_count;
 
     /**
-     * Construct a Paginator_SerializableLimitIterator
+     * Construct a Paginator_Serializablelimititerator
      *
      * @param Iterator $it Iterator to limit (must be serializable by un-/serialize)
      * @param int $offset Offset to first element
@@ -75,9 +75,9 @@ class Paginator_SerializableLimitIterator extends LimitIterator implements Seria
      */
     public function unserialize($data)
     {
-        $dataArr = unserialize($data);
-        $this->__construct($dataArr['it'], $dataArr['offset'], $dataArr['count']);
-        $this->seek($dataArr['pos']+$dataArr['offset']);
+        $data_Arr = unserialize($data);
+        $this->__construct($data_Arr['it'], $data_Arr['offset'], $data_Arr['count']);
+        $this->seek($data_Arr['pos']+$data_Arr['offset']);
     }
 
     /**
@@ -88,10 +88,10 @@ class Paginator_SerializableLimitIterator extends LimitIterator implements Seria
      */
     public function offsetGet($offset)
     {
-        $currentOffset = $this->key();
+        $current_Offset = $this->key();
         $this->seek($offset);
         $current = $this->current();
-        $this->seek($currentOffset);
+        $this->seek($current_Offset);
         return $current;
     }
 
@@ -115,15 +115,15 @@ class Paginator_SerializableLimitIterator extends LimitIterator implements Seria
     {
         if ($offset > 0 && $offset < $this->_count) {
             try {
-                $currentOffset = $this->key();
+                $current_Offset = $this->key();
                 $this->seek($offset);
                 $current = $this->current();
-                $this->seek($currentOffset);
+                $this->seek($current_Offset);
                 return null !== $current;
             } catch (OutOfBoundsException $e) {
                 // reset position in case of exception is assigned null
                 $this->rewind();
-                $this->seek($currentOffset);
+                $this->seek($current_Offset);
                 return false;
             }
         }

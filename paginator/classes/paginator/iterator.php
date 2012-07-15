@@ -48,10 +48,8 @@ class Paginator_Iterator implements Countable {
      * @param  Iterator $iterator Iterator to paginate
      * @throws Paginator_Exception
      */
-    public function __construct(Iterator $iterator)
-    {
-        if (!$iterator instanceof Countable)
-        {
+    public function __construct(Iterator $iterator) {
+        if (!$iterator instanceof Countable) {
             throw new Exception('Iterator must implement Countable');
         }
 
@@ -63,19 +61,17 @@ class Paginator_Iterator implements Countable {
      * Returns an iterator of items for a page, or an empty array.
      *
      * @param  integer $offset Page offset
-     * @param  integer $itemCountPerPage Number of items per page
+     * @param  integer $item_Count_Per_Page Number of items per page
      * @return LimitIterator|array
      */
-    public function getItems($offset, $itemCountPerPage)
-    {
-        if ($this->_count == 0)
-        {
+    public function get_Items($offset, $item_Count_Per_Page) {
+        if ($this->_count == 0) {
             return array();
         }
 
         // @link http://bugs.php.net/bug.php?id=49906 | ZF-8084
-        // return new LimitIterator($this->_iterator, $offset, $itemCountPerPage);
-        return new Paginator_SerializableLimitIterator($this->_iterator, $offset, $itemCountPerPage);
+        // return new LimitIterator($this->_iterator, $offset, $item_Count_Per_Page);
+        return new Paginator_Serializablelimititerator($this->_iterator, $offset, $item_Count_Per_Page);
     }
 
     /**
@@ -83,8 +79,7 @@ class Paginator_Iterator implements Countable {
      *
      * @return integer
      */
-    public function count()
-    {
+    public function count() {
         return $this->_count;
     }
 
