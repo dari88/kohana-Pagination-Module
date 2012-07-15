@@ -29,30 +29,30 @@
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Paginator_ScrollingStyle_Jumping implements Paginator_ScrollingStyle_Interface
+class Paginator_Scrollingstyle_Jumping implements Paginator_Scrollingstyle_Interface
 {
     /**
      * Returns an array of "local" pages given a page number and range.
      *
      * @param  Paginator $paginator
-     * @param  integer $pageRange Unused
+     * @param  integer $page_Range Unused
      * @return array
      */
-    public function getPages(Paginator $paginator, $pageRange = null)
+    public function get_Pages(Paginator $paginator, $page_Range = null)
     {
-        $pageRange  = $paginator->getPageRange();
-        $pageNumber = $paginator->getCurrentPageNumber();
+        $page_Range  = $paginator->get_Page_Range();
+        $page_Number = $paginator->get_Current_Page_Number();
 
-        $delta = $pageNumber % $pageRange;
+        $delta = $page_Number % $page_Range;
 
         if ($delta == 0) {
-            $delta = $pageRange;
+            $delta = $page_Range;
         }
 
-        $offset     = $pageNumber - $delta;
-        $lowerBound = $offset + 1;
-        $upperBound = $offset + $pageRange;
+        $offset     = $page_Number - $delta;
+        $lower_Bound = $offset + 1;
+        $upper_Bound = $offset + $page_Range;
 
-        return $paginator->getPagesInRange($lowerBound, $upperBound);
+        return $paginator->get_Pages_In_Range($lower_Bound, $upper_Bound);
     }
 }
