@@ -1,12 +1,6 @@
 Very convenient Pagination Module for kohana 3.2
 ================================================
 
-V2.0 (2012/07/15)
---------------------
-
-- Except the name of the core PHP, camelCase has been discontinued. Underbar(_) has been used for separation of terms.
-- Fixed the case that the item is empty.
-
 This VPM is codes modification of Zend Paginator. It's input is Database_MySQL_Result, output is paginator and rendered view of pagination. It's very convenient!
 
 Most simple usage:
@@ -19,7 +13,7 @@ Most simple usage:
     $model = Model::factory('test12_posts');
     $select = $model->selectblogs($array);
     $paginator = Paginator::factory($select);
-    $paginator->set_Current_Page_Number($page);
+    $paginator->setCurrentPageNumber($page);
     $view = View::factory('test12/edit/posts');
     $view->data = $paginator;
     $view->pagination = $paginator->render();
@@ -34,8 +28,8 @@ Most simple usage:
 
 Options for example:
 --------------------
-    $paginator->set_Option_Queries('http://example.com/kohana', 'PageNumber', 'option=draft');
-    $paginator->set_Item_Count_Per_Page(30);  // Default = 10
+    $paginator->setOptionQueries('http://example.com/kohana', 'PageNumber', 'option=draft');
+    $paginator->setItemCountPerPage(30);  // Default = 10
     $paginator->render('Elastic');  // Scrolling style
     $pagecount = $paginator->count();
 

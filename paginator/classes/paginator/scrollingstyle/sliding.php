@@ -31,43 +31,43 @@
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Paginator_Scrollingstyle_Sliding implements Paginator_Scrollingstyle_Interface
+class Paginator_ScrollingStyle_Sliding implements Paginator_ScrollingStyle_Interface
 {
     /**
      * Returns an array of "local" pages given a page number and range.
      *
      * @param  Paginator $paginator
-     * @param  integer $page_Range (Optional) Page range
+     * @param  integer $pageRange (Optional) Page range
      * @return array
      */
-    public function get_Pages(Paginator $paginator, $page_Range = null)
+    public function getPages(Paginator $paginator, $pageRange = null)
     {
-        if ($page_Range === null) {
-            $page_Range = $paginator->get_Page_Range();
+        if ($pageRange === null) {
+            $pageRange = $paginator->getPageRange();
         }
 
-        $page_Number = $paginator->get_Current_Page_Number();
-        $page_Count  = count($paginator);
+        $pageNumber = $paginator->getCurrentPageNumber();
+        $pageCount  = count($paginator);
 
-        if ($page_Range > $page_Count) {
-            $page_Range = $page_Count;
+        if ($pageRange > $pageCount) {
+            $pageRange = $pageCount;
         }
 
-        $delta = ceil($page_Range / 2);
+        $delta = ceil($pageRange / 2);
 
-        if ($page_Number - $delta > $page_Count - $page_Range) {
-            $lower_Bound = $page_Count - $page_Range + 1;
-            $upper_Bound = $page_Count;
+        if ($pageNumber - $delta > $pageCount - $pageRange) {
+            $lowerBound = $pageCount - $pageRange + 1;
+            $upperBound = $pageCount;
         } else {
-            if ($page_Number - $delta < 0) {
-                $delta = $page_Number;
+            if ($pageNumber - $delta < 0) {
+                $delta = $pageNumber;
             }
 
-            $offset     = $page_Number - $delta;
-            $lower_Bound = $offset + 1;
-            $upper_Bound = $offset + $page_Range;
+            $offset     = $pageNumber - $delta;
+            $lowerBound = $offset + 1;
+            $upperBound = $offset + $pageRange;
         }
 
-        return $paginator->get_Pages_In_Range($lower_Bound, $upper_Bound);
+        return $paginator->getPagesInRange($lowerBound, $upperBound);
     }
 }

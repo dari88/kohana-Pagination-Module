@@ -30,29 +30,29 @@
  * @copyright  Copyright (c) 2005-2011 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Paginator_Scrollingstyle_Elastic extends Paginator_Scrollingstyle_Sliding
+class Paginator_ScrollingStyle_Elastic extends Paginator_ScrollingStyle_Sliding
 {
     /**
      * Returns an array of "local" pages given a page number and range.
      *
      * @param  Paginator $paginator
-     * @param  integer $page_Range Unused
+     * @param  integer $pageRange Unused
      * @return array
      */
-    public function get_Pages(Paginator $paginator, $page_Range = null)
+    public function getPages(Paginator $paginator, $pageRange = null)
     {
-        $page_Range  = $paginator->get_Page_Range();
-        $page_Number = $paginator->get_Current_Page_Number();
+        $pageRange  = $paginator->getPageRange();
+        $pageNumber = $paginator->getCurrentPageNumber();
 
-        $original_Page_Range = $page_Range;
-        $page_Range         = $page_Range * 2 - 1;
+        $originalPageRange = $pageRange;
+        $pageRange         = $pageRange * 2 - 1;
 
-        if ($original_Page_Range + $page_Number - 1 < $page_Range) {
-            $page_Range = $original_Page_Range + $page_Number - 1;
-        } else if ($original_Page_Range + $page_Number - 1 > count($paginator)) {
-            $page_Range = $original_Page_Range + count($paginator) - $page_Number;
+        if ($originalPageRange + $pageNumber - 1 < $pageRange) {
+            $pageRange = $originalPageRange + $pageNumber - 1;
+        } else if ($originalPageRange + $pageNumber - 1 > count($paginator)) {
+            $pageRange = $originalPageRange + count($paginator) - $pageNumber;
         }
 
-        return parent::get_Pages($paginator, $page_Range);
+        return parent::getPages($paginator, $pageRange);
     }
 }
