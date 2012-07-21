@@ -85,3 +85,10 @@ Methods:
     set_Item_Count_Per_Page($item_Count_Per_Page = -1)
     set_Option_Queries($url = null, $page_Query_Name = null, $option_Query = null)
     set_Page_Range($page_Range)
+
+for kohana 3.3
+--------------
+Go to next repository.
+- [dari88/Pagination-Module-for-kohana-3.3]
+
+[dari88/Pagination-Module-for-kohana-3.3]: http://bit.ly/O8jdX0
