@@ -91,3 +91,11 @@ Methods:
     set_item_count_per_page($item_count_per_page = -1)
     set_option_queries($url = null, $page_query_name = null, $option_query = null)
     set_page_range($page_range)
+
+for kohana 3.3
+--------------
+
+Go to next repository.
+- [dari88/Pagination-Module-for-kohana-3.3]
+
+[dari88/Pagination-Module-for-kohana-3.3]: http://bit.ly/O8jdX0
